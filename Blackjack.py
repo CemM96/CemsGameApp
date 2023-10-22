@@ -20,7 +20,8 @@ def Deal():
         Hit(DealerHand)
 
 
-def Total(turn):  # Calculates total of hand including identifying value of ace
+# Function to calculate the total value of a hand and handle aces
+def Total(turn):
     total = 0
     num_aces = 0
 
@@ -39,10 +40,12 @@ def Total(turn):  # Calculates total of hand including identifying value of ace
     return total
 
 
+# Print welcome message and initial player balance
 print("Welcome to BlackJack!")
 print("Player Balance: $", player_balance)
 
-while True:  # Start of game replay loop
+# Main game loop
+while True:
     random.shuffle(Cards.deck)
     PlayerHand = []
     DealerHand = []
@@ -59,7 +62,8 @@ while True:  # Start of game replay loop
     print("Player's Hand: ", player_cards_str)
     print("Dealer's Hand: ", DealerHand[0], "\n")
 
-    while True:  # Start of player loop
+    # Start of player loop
+    while True:
         print("Your hands total value is: ", Total(PlayerHand))
         if Total(PlayerHand) > 21:
             print("Player Busted!\n\nDealer's Turn...")
@@ -82,7 +86,8 @@ while True:  # Start of game replay loop
     print("Dealer's Hand: ", dealer_cards_str)
     print("Dealer's Total: ", Total(DealerHand))
 
-    while Total(DealerHand) < 17:  # Start of dealer loop
+    # Start of dealer loop
+    while Total(DealerHand) < 17:
         Hit(DealerHand)
         dealer_cards_str = ", ".join(str(card) for card in DealerHand)
         print("\nDealer's Hand: ", dealer_cards_str)
@@ -96,6 +101,7 @@ while True:  # Start of game replay loop
     print("\nPlayer's Total: ", player_total)
     print("Dealer's Total: ", dealer_total)
 
+    # Determine the winner and handle bets
     if player_total > 21:
         print("\nPlayer Busted! Dealer Wins!")
     elif dealer_total > 21:
@@ -109,10 +115,10 @@ while True:  # Start of game replay loop
     else:
         print("\nIt's a Tie!")
         player_balance += bet
-    # Decides victor and loser and bet winnings
 
     print("\nPlayer Balance: $", player_balance)
 
+    # Check if player has no money left to bet
     if player_balance == 0:
         print("You have nothing left to bet!\nThanks For Playing! Goodbye!")
         break
