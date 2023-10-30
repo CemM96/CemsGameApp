@@ -5,7 +5,7 @@ class Card:
     face_cards = {1: "Ace", 11: "Jack", 12: "Queen", 13: "King"}
 
     # Constructor method to initialize a card object with a value and a suit
-    def __init__(self, value, suit):  #
+    def __init__(self, value, suit):
         self.value = value
         self.suit = suit
 
