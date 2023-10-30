@@ -39,7 +39,6 @@ def calculate_total(turn):
     return total
 
 
-
 def game_loop(player_balance):
     # Print welcome message and initial player balance
     print("Welcome to BlackJack!")
