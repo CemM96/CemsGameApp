@@ -16,9 +16,9 @@ class SettingsScreen(MDScreen):
         self.manager.current = 'menu'
 
 
-class GameScreen(MDScreen):
+class PongGameScreen(MDScreen):
     def __init__(self, **kwargs):
-        super(GameScreen, self).__init__(**kwargs)
+        super(PongGameScreen, self).__init__(**kwargs)
         self.game = PongGame()
         Clock.schedule_interval(self.game.update, 1.0 / 60.0)
         self.add_widget(self.game)
@@ -43,7 +43,7 @@ class PongApp(MDApp):
         sm = MDScreenManager()
         sm.add_widget(MenuScreen(name='menu'))
         sm.add_widget(SettingsScreen(name='settings'))
-        sm.add_widget(GameScreen(name='game'))
+        sm.add_widget(PongGameScreen(name='pong game'))
         return sm
 
     def on_start(self):
