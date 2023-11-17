@@ -1,8 +1,10 @@
 # What this repo is
-- Game of blackjack
+- App for multiple games
+- Blackjack
+- Pong
 
 # How to run
-- Tested on Python 3.8
+- Tested on Python 3.11
 
 ```bash
 python3 main.py
