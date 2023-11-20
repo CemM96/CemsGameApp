@@ -8,7 +8,8 @@ from kivy.core.window import Window
 
 
 class MenuScreen(MDScreen):
-    pass
+    def switch_to_settings(self):
+        self.manager.current = 'settings'
 
 
 class SettingsScreen(MDScreen):
@@ -25,18 +26,13 @@ class PongGameScreen(MDScreen):
 
 
 class PongApp(MDApp):
-    data = {
-        'Python': 'language-python',
-        'PHP': 'language-php',
-        'C++': 'language-cpp',
-    }
-
     def build(self):
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "DeepPurple"
+        self.theme_cls.primary_palette = "BlueGray"
         self.theme_cls.material_style = "M3"
 
         Builder.load_file('../CemsGameApp/Pong/pong_game.kv')
+        Builder.load_file('../CemsGameApp/BlackJack/blackjack_game.kv')
         Builder.load_file('menu.kv')
         Builder.load_file('settings.kv')
 
@@ -48,7 +44,7 @@ class PongApp(MDApp):
 
     def on_start(self):
         # Window.fullscreen = 'auto'
-        Window.size = (1280, 720)
+        Window.size = (1800, 900)
 
 
 if __name__ == '__main__':

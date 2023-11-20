@@ -31,18 +31,6 @@
             pos: self.center_x - 5, 0
             size: 10, self.height
 
-    MDRaisedButton:
-        id: serve_button
-        text: 'SERVE'
-        size_hint: None, None
-        size: 100, 50
-        center_x: root.width / 2
-        top: root.top - 50
-        on_release:
-            root.serve_ball()
-            root.serve_button_pressed()
-
-
     MDLabel:
         font_size: 70
         center_x: root.width / 4
@@ -68,3 +56,19 @@
         id: player_right
         x: root.width - self.width - 50
         center_y: root.center_y
+
+    MDRaisedButton:
+        id: serve_button
+        text: 'SERVE'
+        md_bg_color: 0.8, 0.8, 0.8, 1
+        text_color: 0, 0, 0, 1
+        padding: 75, 50
+        font_size: 25
+        size: 150, 50
+        center_x: root.width / 2
+        center_y: root.height / 2 - 200
+        on_release:
+            root.serve_ball()
+            root.serve_button_pressed()
+
+    # Exit Menu...

@@ -1,33 +1,77 @@
 <MenuScreen>
     MDBoxLayout:
         orientation: 'vertical'
-        spacing: 20
-        padding: 50
 
-        MDLabel:
-            text: "Welcome to Cem's Game App"
-            font_size: 32
-            halign: 'center'
-
-        MDFillRoundFlatIconButton:
-            text: 'Start Game'
-            icon: "play"
-            font_style: "Button"
-            size_hint: (0.25, 0.2)
-            pos_hint: {'center_x': 0.5}
-            on_release: app.root.current = 'pong game'
-
-        MDFillRoundFlatIconButton:
-            text: 'Settings'
-            icon: "cog"
-            font_style: "Button"
-            size_hint: (0.25, 0.2)
-            pos_hint: {'center_x': 0.5}
-            on_release: app.root.current = 'settings'
-
-        MDFloatingActionButton:
+        MDTopAppBar:
+            title: "Main Menu"
             icon: "exit-to-app"
-            #md_bg_color: (1, 0, 0, 1)
-            #size_hint: (0.25, 0.2)
-            #pos_hint: {'center_x': 0.5}
-            on_release: app.stop()
+            left_action_items: [["exit-to-app", lambda x: app.stop()]]
+            right_action_items: [["cog", lambda x: app.root.current_screen.switch_to_settings()]]
+            elevation: 5
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            padding: 50
+            spacing: 10
+
+            MDCard:
+                MDRaisedButton:
+                    text: 'Start Game'
+                    icon: "play"
+                    font_style: "Button"
+                    size_hint: (0.25, 0.2)
+                    pos_hint: {'center_x': 0.5}
+                    on_release: app.root.current = 'pong game'
+
+            MDCard:
+                MDRaisedButton:
+                    text: 'Start Game'
+                    icon: "play"
+                    font_style: "Button"
+                    size_hint: (0.25, 0.2)
+                    pos_hint: {'center_x': 0.5}
+                    # on_release: app.root.current = 'blackjack game'
+
+            MDCard:
+                MDRaisedButton:
+                    text: 'Start Game'
+                    icon: "play"
+                    font_style: "Button"
+                    size_hint: (0.25, 0.2)
+                    pos_hint: {'center_x': 0.5}
+                    # on_release: app.root.current = 'snake game'
+
+            MDCard:
+                MDRaisedButton:
+                    text: 'Start Game'
+                    icon: "play"
+                    font_style: "Button"
+                    size_hint: (0.25, 0.2)
+                    pos_hint: {'center_x': 0.5}
+                    # on_release: app.root.current = '... game'
+
+            MDCard:
+                MDRaisedButton:
+                    text: 'Start Game'
+                    icon: "play"
+                    font_style: "Button"
+                    size_hint: (0.25, 0.2)
+                    pos_hint: {'center_x': 0.5}
+                    # on_release: app.root.current = '... game'
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 100
+            spacing: 0
+
+            MDLabel:
+                id: 'login_label'
+                text: 'Welcome to the Arcade!'
+                font_style: "H2"
+                halign: 'center'
+
+            MDFillRoundFlatIconButton:
+                text: 'Sign In'
+                icon: "login"
+                font_style: "Button"
+                pos_hint: {'center_x': 0.5}

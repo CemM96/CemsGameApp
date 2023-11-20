@@ -1,37 +1,22 @@
 <SettingsScreen>
+
     MDBoxLayout:
         orientation: "vertical"
-        spacing: 10
-        padding: 10
 
         MDTopAppBar:
-            title: "Back to Main Menu"
-            font_style: "H6"
+            title: "Settings"
+            icon: "exit-to-app"
+            anchor_title: "left"
             left_action_items: [["arrow-left", lambda x: app.root.current_screen.back_to_menu()]]
+            #right_action_items: [["cog"]]
+            elevation: 5
 
+        MDGridLayout:
+            cols: 2
+            MDLabel:
+                text: "Settings 1"
+                halign: "center"
 
-        MDLabel:
-            text: "Settings"
-            halign: "center"
-            font_style: "H4"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
-
-        MDLabel:
-            text: "This is a settings screen"
-            halign: "center"
-            font_style: "H6"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
-
-        MDSwitch:
-            halign: "center"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            active: True
-
-        MDLabel:
-            text: "Dark Mode"
-            halign: "center"
-            font_style: "H6"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Settings 2"
+                halign: "center"
