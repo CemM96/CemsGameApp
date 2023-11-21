@@ -26,10 +26,6 @@ class PongGameScreen(MDScreen):
 
 
 class GameApp(MDApp):
-    def __init__(self):
-        super().__init__()
-        self.orientation = 'landscape'
-
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Cyan"

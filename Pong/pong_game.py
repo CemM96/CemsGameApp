@@ -2,6 +2,7 @@ from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProperty
 from kivy.vector import Vector
 from random import randint
+from kivy.clock import Clock
 
 
 class PongPaddle(Widget):
@@ -18,10 +19,6 @@ class PongBall(Widget):
 
     def move(self):
         self.pos = Vector(*self.velocity) + self.pos
-
-    def reset(self):
-        self.pos = Vector(0, 0)
-        self.velocity = Vector(0, 0)
 
 
 class PongGame(Widget):
@@ -50,8 +47,13 @@ class PongGame(Widget):
         self.ball.velocity = Vector(8, 0).rotate(angle)
 
     def serve_button_pressed(self):
+        self.ids.exit_button.opacity = 0
+        self.ids.exit_button.disabled = True
+
         self.ids.serve_button.opacity = 0
         self.ids.serve_button.disabled = True
+
+        Clock.schedule_once(lambda dt: self.serve_ball(), 0.8)
 
     def update(self, dt):
 
@@ -64,14 +66,13 @@ class PongGame(Widget):
             self.ball.center = self.center
             self.ball.velocity = Vector(0, 0)
             self.player_1_score += 1
-            self.ids.serve_button.opacity = 1
-            self.ids.serve_button.disabled = False
+            self.serve_button_pressed()
+
         if self.ball.x > self.width - 50:
             self.ball.center = self.center
             self.ball.velocity = Vector(0, 0)
             self.player_2_score += 1
-            self.ids.serve_button.opacity = 1
-            self.ids.serve_button.disabled = False
+            self.serve_button_pressed()
 
         self.player_1.bounce_ball(self.ball)
         self.player_2.bounce_ball(self.ball)
