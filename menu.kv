@@ -1,4 +1,10 @@
 <MenuScreen>
+    canvas.before:
+        Rectangle:
+            source: 'GameAppImages/backgroundGrey.jpg'
+            size: self.size
+            pos: self.pos
+
     MDBoxLayout:
         orientation: 'vertical'
 
@@ -11,20 +17,14 @@
 
         MDBoxLayout:
             orientation: 'vertical'
-            padding: 25
+            padding: 50
             spacing: 10
 
-            MDLabel:
-                text: 'Welcome to the Arcade!'
-                font_style: "H2"
-                halign: 'center'
-
-            MDRectangleFlatIconButton:
-                text: 'Sign In'
-                icon: "login"
-                font_style: "Button"
-                size_hint: (0.2, 0.5)
-                pos_hint: {'center_x': 0.5}
+            MDCard:
+                MDLabel:
+                    text: 'Welcome to the Arcade!'
+                    font_style: "H2"
+                    halign: 'center'
 
         MDBoxLayout:
             orientation: 'horizontal'
@@ -35,11 +35,11 @@
                 orientation: 'vertical'
                 focus_behavior: True
                 ripple_behavior: True
-                style: 'outlined'
+                elevation: 5
                 on_release: app.root.current = 'pong game'
                 md_bg_color: app.theme_cls.primary_color
                 unfocus_color: app.theme_cls.primary_color
-                focus_color: (0.3, 0.6, 0.3, 0.5)
+                focus_color: app.theme_cls.accent_color
 
                 MDLabel:
                     text: 'Pong'
@@ -50,11 +50,11 @@
                 orientation: 'vertical'
                 focus_behavior: True
                 ripple_behavior: True
-                style: 'outlined'
+                elevation: 5
                 # on_release: app.root.current = 'blackjack game'
                 md_bg_color: app.theme_cls.primary_color
                 unfocus_color: app.theme_cls.primary_color
-                focus_color: (0.3, 0.6, 0.3, 0.5)
+                focus_color: app.theme_cls.accent_color
 
                 MDLabel:
                     text: 'Blackjack'
@@ -65,11 +65,11 @@
                 orientation: 'vertical'
                 focus_behavior: True
                 ripple_behavior: True
-                style: 'outlined'
+                elevation: 5
                 # on_release: app.root.current = 'snake game'
                 md_bg_color: app.theme_cls.primary_color
                 unfocus_color: app.theme_cls.primary_color
-                focus_color: (0.3, 0.6, 0.3, 0.5)
+                focus_color: app.theme_cls.accent_color
 
                 MDLabel:
                     text: 'Snake'
@@ -80,11 +80,11 @@
                 orientation: 'vertical'
                 focus_behavior: True
                 ripple_behavior: True
-                style: 'outlined'
+                elevation: 5
                 # on_release: app.root.current = '... game'
                 md_bg_color: app.theme_cls.primary_color
                 unfocus_color: app.theme_cls.primary_color
-                focus_color: (0.3, 0.6, 0.3, 0.5)
+                focus_color: app.theme_cls.accent_color
 
                 MDLabel:
                     text: '...'
@@ -95,11 +95,11 @@
                 orientation: 'vertical'
                 focus_behavior: True
                 ripple_behavior: True
-                style: 'outlined'
+                elevation: 5
                 # on_release: app.root.current = '... game'
                 md_bg_color: app.theme_cls.primary_color
                 unfocus_color: app.theme_cls.primary_color
-                focus_color: (0.3, 0.6, 0.3, 0.5)
+                focus_color: app.theme_cls.accent_color
 
                 MDLabel:
                     text: '...'

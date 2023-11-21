@@ -1,4 +1,10 @@
 <SettingsScreen>
+    canvas.before:
+        Rectangle:
+            source: 'GameAppImages/backgroundGrey.jpg'
+            size: self.size
+            pos: self.pos
+
     MDBoxLayout:
         orientation: "vertical"
 
@@ -9,17 +15,12 @@
             left_action_items: [["arrow-left", lambda x: app.root.current_screen.back_to_menu()]]
             elevation: 5
 
-        MDGridLayout:
-            cols: 2
-            padding: "50dp"
-            spacing: "50dp"
-
-            MDLabel:
-                text: "Settings 1"
-                font_size: 32
-                halign: "right"
-
-            MDLabel:
-                text: "Settings 2"
-                font_size: 32
-                halign: "left"
+        MDBoxLayout:
+            MDCard:
+                orientation: "vertical"
+                padding: 50
+                spacing: 10
+                elevation: 5
+                size_hint: None, None
+                size: 480, 580
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}

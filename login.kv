@@ -1,0 +1,60 @@
+<LoginScreen>
+    username: username
+
+    canvas.before:
+        Rectangle:
+            source: 'GameAppImages/background.jpg'
+            size: self.size
+            pos: self.pos
+
+    MDCard:
+        orientation: "vertical"
+        padding: 50
+        spacing: 10
+        elevation: 5
+        size_hint: None, None
+        size: 480, 580
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        FloatLayout
+            MDLabel:
+                text: "WELCOME"
+                font_style: "H4"
+                font_size: 50
+                halign: "center"
+                size_hint_y: None
+                height: self.texture_size[1]
+                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                padding: 15
+
+            MDTextField:
+                id: username
+                hint_text: "Username"
+                mode: "round"
+                helper_text: "Required"
+                helper_text_mode: "on_error"
+                icon_right: "account"
+                size_hint_x: None
+                width: 300
+                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            MDCheckbox:
+                size_hint: None, None
+                size: dp(48), dp(48)
+                pos_hint: {'center_x': 0.29, 'center_y': 0.1}
+                on_active: app.theme_cls.theme_style = ('Dark' if self.active else 'Light')
+
+            MDLabel:
+                id: password_text
+                text: "Remember Username"
+                pos_hint: {'center_x': 0.83, 'center_y': 0.1}
+
+        MDRectangleFlatButton:
+            text: "Log In"
+            font_size: 18
+            pos_hint: {'center_x': 0.5}
+            size_hint: 0.5, 0.15
+            md_bg_color: (0.2, 0.6, 1, 0.1)
+            theme_text_color: "Custom"
+            text_color: (1, 1, 1, 1)
+            on_release: root.manager.current = 'menu'

@@ -2,7 +2,7 @@
     size: 25, 150
     canvas.before:
         Color:
-            rgba: 0.6, 0.7, 0.3, 1
+            rgba: (0.6, 0.7, 0.3, 1)
     canvas:
         Rectangle:
             pos: self.pos
@@ -12,7 +12,7 @@
     size: 50, 50
     canvas.before:
         Color:
-            rgba: 0.8, 0.2, 0.2, 1
+            rgba: (0.8, 0.2, 0.2, 1)
     canvas:
         Ellipse:
             pos: self.pos
@@ -25,7 +25,7 @@
 
     canvas.before:
         Color:
-            rgba: 1, 1, 1, 0.5
+            rgba: (1, 1, 1, 0.5)
     canvas:
         Rectangle:
             pos: self.center_x - 5, 0
@@ -49,12 +49,12 @@
 
     PongPaddle:
         id: player_left
-        x: root.x + 50
+        x: root.x + 150
         center_y: root.center_y
 
     PongPaddle:
         id: player_right
-        x: root.width - self.width - 50
+        x: root.width - self.width - 150
         center_y: root.center_y
 
     MDRaisedButton:
@@ -64,9 +64,20 @@
         font_size: 25
         size: 150, 50
         center_x: root.width / 2
-        center_y: root.height / 2 - 200
+        center_y: root.height / 2
+        md_bg_color: (0.8, 0.2, 0.2, 1)
+        elevation: 5
         on_release:
-            root.serve_ball()
             root.serve_button_pressed()
 
-    # Exit Menu...
+    MDRaisedButton:
+        id: exit_button
+        text: 'Back to Menu'
+        padding: 50, 30
+        font_size: 20
+        size: 150, 50
+        center_x: root.width / 2
+        center_y: root.height / 2 + 500
+        elevation: 5
+        on_release:
+            app.root.current = 'menu'

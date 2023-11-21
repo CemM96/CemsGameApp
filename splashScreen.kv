@@ -1,0 +1,27 @@
+<SplashScreen>
+    name: 'SplashScreen'
+
+    on_enter: self.ids.progress.start()
+
+    canvas.before:
+        Rectangle:
+            source: 'GameAppImages/background.jpg'
+            size: self.size
+            pos: self.pos
+
+    MDBoxLayout:
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        padding: '10dp'
+
+        size_hint_x: .7
+
+        MDProgressBar:
+            id: progress
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '10dp'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            color: app.theme_cls.primary_color
+            type: 'indeterminate'
+            running_duration: 1
+            catching_duration: 1
