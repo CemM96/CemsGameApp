@@ -10,68 +10,98 @@
             elevation: 5
 
         MDBoxLayout:
+            orientation: 'vertical'
+            padding: 25
+            spacing: 10
+
+            MDLabel:
+                text: 'Welcome to the Arcade!'
+                font_style: "H2"
+                halign: 'center'
+
+            MDRectangleFlatIconButton:
+                text: 'Sign In'
+                icon: "login"
+                font_style: "Button"
+                size_hint: (0.2, 0.5)
+                pos_hint: {'center_x': 0.5}
+
+        MDBoxLayout:
             orientation: 'horizontal'
             padding: 50
             spacing: 10
 
             MDCard:
-                MDRaisedButton:
-                    text: 'Start Game'
-                    icon: "play"
-                    font_style: "Button"
-                    size_hint: (0.25, 0.2)
-                    pos_hint: {'center_x': 0.5}
-                    on_release: app.root.current = 'pong game'
+                orientation: 'vertical'
+                focus_behavior: True
+                ripple_behavior: True
+                style: 'outlined'
+                on_release: app.root.current = 'pong game'
+                md_bg_color: app.theme_cls.primary_color
+                unfocus_color: app.theme_cls.primary_color
+                focus_color: (0.3, 0.6, 0.3, 0.5)
+
+                MDLabel:
+                    text: 'Pong'
+                    font_style: "H4"
+                    halign: 'center'
 
             MDCard:
-                MDRaisedButton:
-                    text: 'Start Game'
-                    icon: "play"
-                    font_style: "Button"
-                    size_hint: (0.25, 0.2)
-                    pos_hint: {'center_x': 0.5}
-                    # on_release: app.root.current = 'blackjack game'
+                orientation: 'vertical'
+                focus_behavior: True
+                ripple_behavior: True
+                style: 'outlined'
+                # on_release: app.root.current = 'blackjack game'
+                md_bg_color: app.theme_cls.primary_color
+                unfocus_color: app.theme_cls.primary_color
+                focus_color: (0.3, 0.6, 0.3, 0.5)
+
+                MDLabel:
+                    text: 'Blackjack'
+                    font_style: "H4"
+                    halign: 'center'
 
             MDCard:
-                MDRaisedButton:
-                    text: 'Start Game'
-                    icon: "play"
-                    font_style: "Button"
-                    size_hint: (0.25, 0.2)
-                    pos_hint: {'center_x': 0.5}
-                    # on_release: app.root.current = 'snake game'
+                orientation: 'vertical'
+                focus_behavior: True
+                ripple_behavior: True
+                style: 'outlined'
+                # on_release: app.root.current = 'snake game'
+                md_bg_color: app.theme_cls.primary_color
+                unfocus_color: app.theme_cls.primary_color
+                focus_color: (0.3, 0.6, 0.3, 0.5)
+
+                MDLabel:
+                    text: 'Snake'
+                    font_style: "H4"
+                    halign: 'center'
 
             MDCard:
-                MDRaisedButton:
-                    text: 'Start Game'
-                    icon: "play"
-                    font_style: "Button"
-                    size_hint: (0.25, 0.2)
-                    pos_hint: {'center_x': 0.5}
-                    # on_release: app.root.current = '... game'
+                orientation: 'vertical'
+                focus_behavior: True
+                ripple_behavior: True
+                style: 'outlined'
+                # on_release: app.root.current = '... game'
+                md_bg_color: app.theme_cls.primary_color
+                unfocus_color: app.theme_cls.primary_color
+                focus_color: (0.3, 0.6, 0.3, 0.5)
+
+                MDLabel:
+                    text: '...'
+                    font_style: "H4"
+                    halign: 'center'
 
             MDCard:
-                MDRaisedButton:
-                    text: 'Start Game'
-                    icon: "play"
-                    font_style: "Button"
-                    size_hint: (0.25, 0.2)
-                    pos_hint: {'center_x': 0.5}
-                    # on_release: app.root.current = '... game'
+                orientation: 'vertical'
+                focus_behavior: True
+                ripple_behavior: True
+                style: 'outlined'
+                # on_release: app.root.current = '... game'
+                md_bg_color: app.theme_cls.primary_color
+                unfocus_color: app.theme_cls.primary_color
+                focus_color: (0.3, 0.6, 0.3, 0.5)
 
-        MDBoxLayout:
-            orientation: 'vertical'
-            padding: 100
-            spacing: 0
-
-            MDLabel:
-                id: 'login_label'
-                text: 'Welcome to the Arcade!'
-                font_style: "H2"
-                halign: 'center'
-
-            MDFillRoundFlatIconButton:
-                text: 'Sign In'
-                icon: "login"
-                font_style: "Button"
-                pos_hint: {'center_x': 0.5}
+                MDLabel:
+                    text: '...'
+                    font_style: "H4"
+                    halign: 'center'

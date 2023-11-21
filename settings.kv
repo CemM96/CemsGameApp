@@ -1,5 +1,4 @@
 <SettingsScreen>
-
     MDBoxLayout:
         orientation: "vertical"
 
@@ -8,15 +7,19 @@
             icon: "exit-to-app"
             anchor_title: "left"
             left_action_items: [["arrow-left", lambda x: app.root.current_screen.back_to_menu()]]
-            #right_action_items: [["cog"]]
             elevation: 5
 
         MDGridLayout:
             cols: 2
+            padding: "50dp"
+            spacing: "50dp"
+
             MDLabel:
                 text: "Settings 1"
-                halign: "center"
+                font_size: 32
+                halign: "right"
 
             MDLabel:
                 text: "Settings 2"
-                halign: "center"
+                font_size: 32
+                halign: "left"

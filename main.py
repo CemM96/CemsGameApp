@@ -25,10 +25,15 @@ class PongGameScreen(MDScreen):
         self.add_widget(self.game)
 
 
-class PongApp(MDApp):
+class GameApp(MDApp):
+    def __init__(self):
+        super().__init__()
+        self.orientation = 'landscape'
+
     def build(self):
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "BlueGray"
+        self.theme_cls.primary_palette = "Cyan"
+        self.theme_cls.primary_hue = "500"
         self.theme_cls.material_style = "M3"
 
         Builder.load_file('../CemsGameApp/Pong/pong_game.kv')
@@ -48,4 +53,4 @@ class PongApp(MDApp):
 
 
 if __name__ == '__main__':
-    PongApp().run()
+    GameApp().run()
