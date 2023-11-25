@@ -18,14 +18,22 @@
 
         FloatLayout
             MDLabel:
-                text: "WELCOME"
+                markup: True
+                text:
+                    "[size=65][color=#00FF00][b]WELCOME![/b][/color][/size]"\
+                    "\n[color=#4169E1]TO THE ARCADE[/color]"
+                font_size: 28
                 font_style: "H4"
-                font_size: 50
                 halign: "center"
                 size_hint_y: None
                 height: self.texture_size[1]
-                pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                pos_hint: {'center_x': 0.5, 'center_y': 0.85}
                 padding: 15
+
+            Image:
+                source: 'GameAppImages/ArcadeLogo.png'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint: 0.5, 0.5
 
             MDTextField:
                 id: username
@@ -41,8 +49,8 @@
             MDCheckbox:
                 size_hint: None, None
                 size: dp(48), dp(48)
-                pos_hint: {'center_x': 0.29, 'center_y': 0.1}
-                on_active: app.theme_cls.theme_style = ('Dark' if self.active else 'Light')
+                pos_hint: {'center_x': 0.29, 'center_y': 0.101}
+                color_active: "lime"
 
             MDLabel:
                 id: password_text

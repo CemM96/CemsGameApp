@@ -1,7 +1,7 @@
 <MenuScreen>
     canvas.before:
         Rectangle:
-            source: 'GameAppImages/backgroundGrey.jpg'
+            source: 'GameAppImages/background.jpg'
             size: self.size
             pos: self.pos
 
@@ -11,7 +11,7 @@
         MDTopAppBar:
             title: "Main Menu"
             icon: "exit-to-app"
-            left_action_items: [["exit-to-app", lambda x: app.stop()]]
+            left_action_items: [["exit-to-app", lambda x: app.root.current_screen.switch_to_login_screen()]]
             right_action_items: [["cog", lambda x: app.root.current_screen.switch_to_settings()]]
             elevation: 5
 
@@ -21,6 +21,9 @@
             spacing: 10
 
             MDCard:
+                orientation: 'horizontal'
+                elevation: 5
+
                 MDLabel:
                     text: 'Welcome to the Arcade!'
                     font_style: "H2"

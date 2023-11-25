@@ -18,8 +18,10 @@ class LoginScreen(MDScreen):
 
 class MenuScreen(MDScreen):
     def switch_to_settings(self):
-        self.manager.transition.direction = 'left'
         self.manager.current = 'settings'
+
+    def switch_to_login_screen(self):
+        self.manager.current = 'login'
 
 
 class SettingsScreen(MDScreen):
@@ -38,9 +40,9 @@ class PongGameScreen(MDScreen):
 class GameApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "DeepPurple"
+        self.theme_cls.primary_palette = "Indigo"
         self.theme_cls.primary_hue = "500"
-        self.theme_cls.accent_palette = "DeepOrange"
+        self.theme_cls.accent_palette = "LightGreen"
         self.theme_cls.accent_hue = "900"
         self.theme_cls.material_style = "M3"
 
