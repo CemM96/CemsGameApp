@@ -9,14 +9,15 @@
 
     MDCard:
         orientation: "vertical"
-        padding: 50
-        spacing: 10
+        padding: dp(50)
+        spacing: dp(10)
         elevation: 5
         size_hint: None, None
-        size: 480, 580
+        width: min(dp(480), self.parent.width - dp(40))
+        height: min(dp(580), self.parent.height - dp(40))
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-        FloatLayout
+        FloatLayout:
             MDLabel:
                 markup: True
                 text:
@@ -28,7 +29,7 @@
                 size_hint_y: None
                 height: self.texture_size[1]
                 pos_hint: {'center_x': 0.5, 'center_y': 0.85}
-                padding: 15
+                padding: dp(15)
 
             Image:
                 source: 'GameAppImages/ArcadeLogo.png'
@@ -43,7 +44,7 @@
                 helper_text_mode: "on_error"
                 icon_right: "account"
                 size_hint_x: None
-                width: 300
+                width: min(dp(300), self.parent.width - dp(100))
                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
 
             MDCheckbox:
