@@ -48,13 +48,26 @@ class PongGame(Widget):
 
     def serve_ball(self):
         """
-        Serves the ball at the start or after a score.
+        Sets the direction for the serve of the ball.
         """
         self.ball.center = self.center
         angle = randint(0, 359)
-        while any([60 <= angle <= 120, 240 <= angle <= 300, 0 <= angle <= 30, 330 <= angle <= 359, 150 <= angle <= 210]):
+        while any([
+            0 <= angle <= 30,
+            60 <= angle <= 120,
+            150 <= angle <= 210,
+            240 <= angle <= 300,
+            330 <= angle <= 359,
+        ]):
             angle = randint(0, 359)
         self.ball.velocity = Vector(12, 0).rotate(angle)
+
+    def ball_in_play(self):
+        """
+        Sets the ball in play at the start or after a score.
+        """
+        Clock.schedule_interval(self.update, 1.0 / 60.0)
+        Clock.schedule_once(lambda dt: self.serve_ball(), 0.8)
 
     def serve_button_pressed(self):
         """
@@ -65,8 +78,7 @@ class PongGame(Widget):
         self.ids.serve_button.opacity = 0
         self.ids.serve_button.disabled = True
         self.ball.velocity = Vector(0, 0)
-        Clock.schedule_interval(self.update, 1.0 / 60.0)
-        Clock.schedule_once(lambda dt: self.serve_ball(), 0.8)
+        self.ball_in_play()
 
     def end_game(self):
         """
@@ -74,6 +86,10 @@ class PongGame(Widget):
         """
         self.player_1_score = 0
         self.player_2_score = 0
+        self.ids.exit_button.opacity = 1
+        self.ids.exit_button.disabled = False
+        self.ids.serve_button.opacity = 1
+        self.ids.serve_button.disabled = False
         self.reset_game_state()
 
     def reset_game_state(self):
@@ -83,10 +99,6 @@ class PongGame(Widget):
         self.ball.center = self.center
         self.ball.velocity = Vector(0, 0)
         Clock.unschedule(self.update)
-        self.ids.exit_button.opacity = 1
-        self.ids.exit_button.disabled = False
-        self.ids.serve_button.opacity = 1
-        self.ids.serve_button.disabled = False
 
     def update(self, dt):
         """
@@ -104,10 +116,10 @@ class PongGame(Widget):
             self.ball.velocity_y *= -1
 
         if self.ball.x < 0:
-            self.score_point(player='player_2')
+            self.score_point(player='player_1')
 
         if self.ball.x > self.width - 50:
-            self.score_point(player='player_1')
+            self.score_point(player='player_2')
 
         self.player_1.bounce_ball(self.ball)
         self.player_2.bounce_ball(self.ball)
@@ -121,6 +133,7 @@ class PongGame(Widget):
         elif player == 'player_2':
             self.player_2_score += 1
         self.reset_game_state()
+        self.ball_in_play()
 
     def check_scores(self):
         """
