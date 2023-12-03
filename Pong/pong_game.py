@@ -9,7 +9,18 @@ class PongPaddle(Widget):
 
     def bounce_ball(self, ball):
         if self.collide_widget(ball):
-            ball.velocity_x *= -1.5
+            vx, vy = ball.velocity
+
+            # Adjust the velocity
+            new_vx = -1.5 * vx
+
+            # Reposition the ball outside the paddle
+            if vx > 0:  # Ball moving right
+                ball.x = self.x - ball.width
+            else:  # Ball moving left
+                ball.x = self.right
+
+            ball.velocity = new_vx, vy
 
 
 class PongBall(Widget):
